@@ -1,3 +1,5 @@
+import org.gradle.api.artifacts.dsl.Dependencies
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -33,7 +35,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

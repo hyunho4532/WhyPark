@@ -51,6 +51,10 @@ android {
 
 dependencies {
 
+    implementation(project(":parks-data"))
+    implementation(project(":parks-domain"))
+    implementation(project(":parks-ui"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

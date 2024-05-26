@@ -23,3 +23,5 @@ rootProject.name = "WhyPark"
 include(":app")
 include(":parks-datasource")
 include(":parks-ui")
+include(":parks-domain")
+include(":parks-data")
