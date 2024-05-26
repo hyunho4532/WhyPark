@@ -37,10 +37,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun RecyclerViewContent() {
-    val movies = remember { MovieProvider.movieList }
-    LazyColumn(contentPadding = PaddingValues(16.dp, 8.dp)) {
 
-    }
 }
 
 @Composable
