@@ -17,6 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         movieViewModel.fetchPopularMovies(Constants.API_KEY)
+        movieViewModel.fetchTopRatedMovies(Constants.API_KEY)
 
         setContent {
             WhyParkTheme {

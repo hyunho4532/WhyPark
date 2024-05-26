@@ -12,21 +12,24 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.project.parks_domain.entity.PopularMovie
+import com.project.parks_domain.entity.TopRatedMovie
 import com.project.whypark.ui.component.card.PopularMovieCard
+import com.project.whypark.ui.component.card.TopRatedMovieCard
 
 @Composable
-fun PopularMovieItem(lifecycleOwner: LifecycleOwner, movies: LiveData<List<PopularMovie>>) {
+fun TopRatedMovieItem(lifecycleOwner: LifecycleOwner, movies: LiveData<List<TopRatedMovie>>) {
 
-    val popularMovieListState = remember { mutableStateOf<List<PopularMovie>>(emptyList()) }
+    val topRatedMovieListState = remember { mutableStateOf<List<TopRatedMovie>>(emptyList()) }
 
     DisposableEffect(key1 = lifecycleOwner) {
-        val popularPopularMovieObserver = Observer<List<PopularMovie>> { movies ->
-            popularMovieListState.value = movies // 값 설정
+        val topRatedMovieObserver = Observer<List<TopRatedMovie>> { movies ->
+            topRatedMovieListState.value = movies
         }
-        movies.observe(lifecycleOwner, popularPopularMovieObserver)
+
+        movies.observe(lifecycleOwner, topRatedMovieObserver)
 
         onDispose {
-            movies.removeObserver(popularPopularMovieObserver)
+            movies.removeObserver(topRatedMovieObserver)
         }
     }
 
@@ -34,9 +37,9 @@ fun PopularMovieItem(lifecycleOwner: LifecycleOwner, movies: LiveData<List<Popul
         contentPadding = PaddingValues(0.dp, 20.dp)
     ) {
         items (
-            items = popularMovieListState.value, // 값 가져오기
-            itemContent = { popularMovie ->
-                PopularMovieCard(popularMovie)
+            items = topRatedMovieListState.value,
+            itemContent = { topRatedMovie ->
+                TopRatedMovieCard(topRatedMovie)
             }
         )
     }

@@ -1,6 +1,7 @@
 package com.project.whypark.ui.screen
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -14,6 +15,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.LifecycleOwner
 import com.project.parks_datasource.viewmodel.MovieViewModel
 import com.project.whypark.ui.component.item.PopularMovieItem
+import com.project.whypark.ui.component.item.TopRatedMovieItem
 
 @Composable
 fun HomeScreen(lifecycleOwner: LifecycleOwner, movieViewModel: MovieViewModel) {
@@ -31,13 +33,17 @@ fun HomeScreen(lifecycleOwner: LifecycleOwner, movieViewModel: MovieViewModel) {
                 fontWeight = FontWeight.Bold
             )
 
-            PopularMovieItem(lifecycleOwner, movieViewModel.movies)
+            PopularMovieItem(lifecycleOwner, movieViewModel.popularMovies)
+
+            Spacer(modifier = Modifier.padding(top = 32.dp))
 
             Text (
                 text = "압도적 평가를 받은 영화 😎😎",
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
             )
+
+            TopRatedMovieItem(lifecycleOwner, movieViewModel.topRatedMovies)
         }
     }
 }
