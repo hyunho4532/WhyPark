@@ -44,5 +44,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(Dependencies.retrofit)
+    implementation(Dependencies.retrofitGson)
     implementation(Dependencies.okHttp)
 }
