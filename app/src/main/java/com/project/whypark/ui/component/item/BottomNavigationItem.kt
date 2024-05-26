@@ -1,28 +1,27 @@
 package com.project.whypark.ui.component.item
 
-import androidx.annotation.DrawableRes
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.ui.graphics.vector.ImageVector
-import com.project.whypark.R
+import com.project.parks_domain.entity.BottomNavigation
 import com.project.whypark.ui.navigation.Screen
 
-data class BottomNavigationItem (
-    val label: String,
-    val icon: ImageVector,
-    val route: String
-)
-
 val listOfNavItems = listOf (
-    BottomNavigationItem (
-        label = "Home",
+    BottomNavigation (
+        label = "홈",
         icon = Icons.Default.Home,
         route = Screen.HomeScreen.name
     ),
 
-    BottomNavigationItem (
-        label = "Profile",
+    BottomNavigation (
+        label = "영화",
+        icon = Icons.Default.Favorite,
+        route = Screen.MovieScreen.name
+    ),
+
+    BottomNavigation (
+        label = "프로필",
         icon = Icons.Default.Person,
         route = Screen.ProfileScreen.name
     )

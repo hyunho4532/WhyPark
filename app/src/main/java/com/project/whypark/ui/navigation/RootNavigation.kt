@@ -1,6 +1,9 @@
 package com.project.whypark.ui.navigation
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -10,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.navigation.compose.NavHost
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -19,6 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.project.parks_datasource.viewmodel.MovieViewModel
 import com.project.whypark.ui.component.item.listOfNavItems
 import com.project.whypark.ui.screen.HomeScreen
+import com.project.whypark.ui.screen.MovieScreen
 import com.project.whypark.ui.screen.ProfileScreen
 
 @Composable
@@ -27,7 +33,9 @@ fun RootNavigation(lifecycleOwner: LifecycleOwner, movieViewModel: MovieViewMode
 
     Scaffold (
         bottomBar = {
-            NavigationBar {
+            NavigationBar (
+                modifier = Modifier.height(54.dp)
+            ) {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination
 
@@ -46,11 +54,11 @@ fun RootNavigation(lifecycleOwner: LifecycleOwner, movieViewModel: MovieViewMode
                         icon = {
                                Icon(
                                    imageVector = navItem.icon,
-                                   contentDescription = null
+                                   contentDescription = null,
+                                   modifier = Modifier
+                                       .width(24.dp)
+                                       .height(24.dp)
                                )
-                        },
-                        label = {
-                            Text(text = navItem.label)
                         }
                     )
                 }
@@ -69,6 +77,10 @@ fun RootNavigation(lifecycleOwner: LifecycleOwner, movieViewModel: MovieViewMode
 
             composable(route = Screen.ProfileScreen.name) {
                 ProfileScreen()
+            }
+
+            composable(route = Screen.MovieScreen.name) {
+                MovieScreen()
             }
         }
     }
