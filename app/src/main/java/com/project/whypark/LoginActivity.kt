@@ -3,13 +3,15 @@ package com.project.whypark
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.project.whypark.ui.component.form.LoginForm
 import com.project.whypark.ui.theme.WhyParkTheme
 
 class LoginActivity : ComponentActivity() {
@@ -17,30 +19,24 @@ class LoginActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             WhyParkTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                Column (
+                    modifier = Modifier
+                        .padding(16.dp)
                 ) {
-                    Greeting("Android")
+                    
+                    Text (
+                        text = "안녕하세요.\n와이 파크에 오신것을 환영합니다.",
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    
+                    Spacer (
+                        modifier = Modifier.padding(top = 40.dp)
+                    )
+                    
+                    LoginForm()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    WhyParkTheme {
-        Greeting("Android")
     }
 }
