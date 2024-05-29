@@ -3,44 +3,26 @@ package com.project.whypark
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.activity.viewModels
+import com.project.parks_datasource.viewmodel.MovieViewModel
+import com.project.parks_domain.util.Constants
+import com.project.whypark.ui.navigation.RootNavigation
 import com.project.whypark.ui.theme.WhyParkTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val movieViewModel: MovieViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        movieViewModel.fetchPopularMovies(Constants.API_KEY)
+        movieViewModel.fetchTopRatedMovies(Constants.API_KEY)
+
         setContent {
             WhyParkTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                RootNavigation(this, movieViewModel)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    WhyParkTheme {
-        Greeting("Android")
     }
 }

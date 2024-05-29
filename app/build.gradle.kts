@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.project.whypark"
-        minSdk = 34
+        minSdk = 32
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -51,6 +51,11 @@ android {
 
 dependencies {
 
+    implementation(project(":parks-data"))
+    implementation(project(":parks-domain"))
+    implementation(project(":parks-ui"))
+    implementation(project(":parks-datasource"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -66,4 +71,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    implementation(Dependencies.navigation)
 }
