@@ -25,7 +25,7 @@ fun LoginForm(loginViewModel: LoginViewModel) {
             .fillMaxWidth()
             .padding(bottom = 4.dp),
         textAlign = TextAlign.Start,
-        color = blue
+        color = Color.Black
     )
 
 
@@ -56,7 +56,7 @@ fun LoginForm(loginViewModel: LoginViewModel) {
             .fillMaxWidth()
             .padding(bottom = 4.dp),
         textAlign = TextAlign.Start,
-        color = blue
+        color = Color.Black
     )
 
 
