@@ -5,21 +5,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.project.parks_datasource.viewmodel.LoginViewModel
 import com.project.whypark.ui.component.field.LoginInputField
 
 @Composable
-fun LoginForm() {
+fun LoginForm(loginViewModel: LoginViewModel) {
 
-    val emailState = remember { mutableStateOf("") }
-    val maxLength = 16
+    val maxLength = 22
     val blue = Color(0xff76a9ff)
 
     Text (
@@ -31,12 +28,14 @@ fun LoginForm() {
         color = blue
     )
 
+
     LoginInputField (
-        textState = emailState,
         maxLength = maxLength,
+        loginViewModel = loginViewModel,
+        status = "email"
     ) { state ->
         Text (
-            text = "${state.value.length} / $maxLength",
+            text = "${state.collectAsState().value.length} / $maxLength",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 4.dp),
@@ -45,9 +44,11 @@ fun LoginForm() {
         )
     }
 
+
     Spacer (
         modifier = Modifier.padding(top = 60.dp)
     )
+
 
     Text (
         text = "비밀번호를 입력해주세요!",
@@ -58,12 +59,15 @@ fun LoginForm() {
         color = blue
     )
 
+
     LoginInputField (
-        textState = emailState,
         maxLength = maxLength,
-    ) { state ->
+        loginViewModel = loginViewModel,
+        status = "password"
+    )
+    { state ->
         Text (
-            text = "${state.value.length} / $maxLength",
+            text = "${state.collectAsState().value.length} / $maxLength",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 4.dp),
