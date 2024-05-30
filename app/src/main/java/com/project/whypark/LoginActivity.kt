@@ -95,7 +95,7 @@ class LoginActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.End,
                     ) {
-                        LoginButton(
+                        LoginButton (
                             loginViewModel = loginViewModel
                         )
                     }

@@ -1,5 +1,6 @@
 package com.project.parks_datasource.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,6 +27,10 @@ class LoginViewModel : ViewModel() {
         if (password.isNotEmpty()) {
             _passwordFlow.value = password
         }
+    }
+
+    fun registerUsers() {
+        
     }
 
     fun clearEmail() {

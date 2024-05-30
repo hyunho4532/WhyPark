@@ -7,4 +7,7 @@ object Versions {
     const val retrofit = "2.9.0"
     const val room = "2.5.0"
     const val navigation = "2.5.3"
+
+    const val supabase_version = ":latest"
+    const val ktor_version = ":latest"
 }

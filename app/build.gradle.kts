@@ -75,4 +75,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.6.0")
 
     implementation(Dependencies.navigation)
+    implementation(Dependencies.supabase)
+    implementation(Dependencies.postgrest)
+    implementation(Dependencies.ktor)
 }

@@ -21,7 +21,7 @@ fun LoginButton(loginViewModel: LoginViewModel) {
             .padding(top = 80.dp),
 
         onClick = {
-
+            loginViewModel.registerUsers()
     }) {
         Text(text = "다음 화면으로")
     }

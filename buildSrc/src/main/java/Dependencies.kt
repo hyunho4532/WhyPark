@@ -25,4 +25,8 @@ object Dependencies {
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
 
     const val navigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
+
+    const val supabase = "io.github.jan-tennert.supabase:bom:${Versions.supabase_version}"
+    const val postgrest = "io.github.jan-tennert.supabase:postgrest-kt"
+    const val ktor = "io.ktor:ktor-client-android:${Versions.ktor_version}"
 }
